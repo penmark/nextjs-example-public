@@ -1,0 +1,8 @@
+node_modules
+tmp
+artifacts
+.idea
+dist
+src/style/*.css
+.DS_Store
+.next

@@ -1,0 +1,101 @@
+@media (max-width: 720px) {
+  h1 {
+    font-size: 46px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  h4 {
+    font-size: 32px;
+  }
+  h5 {
+    font-size: 25px;
+  }
+
+  
+    .intro-hero {
+      h1 {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 40px;
+        line-height: 20px;
+        span {
+          padding: 30px
+        }
+      }
+    }
+    .beer-hero {      
+      min-height: 40vh;      
+      background: url('https://res.cloudinary.com/dmof3xnce/image/upload/v1571815940/jesper-pour_xkr1up.png') no-repeat;
+      background-position: center;
+      background-size: cover;
+      video {
+        display: none;
+      }
+    }
+      
+  
+  .intro-hero {
+    h1 {
+      font-size: 20px;
+    }
+    h2 {
+      font-size: 40px;
+      line-height: 20px;
+      span {
+        padding: 30px;
+      }
+    }
+  }
+  .beer-hero {
+    height: 25vh;
+    max-height: 150px;
+    background: url('https://res.cloudinary.com/dmof3xnce/image/upload/v1571815940/jesper-pour_xkr1up.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    video {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .grid {
+    flex-flow: column;
+    .item {
+      display: flex;
+      text-align: left;
+      flex-flow: column;
+      text-align: center;
+      img {
+        width: 120px;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (min-width: 1700px) {
+  .beer {
+    .media-left .image {
+      position: absolute;
+      transform: translateX(50%);
+      right: 0;
+      pointer-events: none;
+    }
+  }
+  .beer:nth-child(even) {
+    .media-left .image {
+      position: absolute;
+      transform: translateX(-50%);
+      left: 0;
+      right: auto;
+      pointer-events: none;
+    }
+  }
+}

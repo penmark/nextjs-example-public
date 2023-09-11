@@ -1,0 +1,129 @@
+header {
+  position: fixed;
+  width: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    .menu {
+      display: flex;
+      a {
+        display: inline-flex;
+        align-items: center;
+        img {
+          margin-right: 10px;
+        }
+      }
+    }
+    .logo a {
+      padding: 0;
+
+      img {
+        height: 40px;
+        width: 200px;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.hamburgler {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -25px;
+  background: #000;
+  border-radius: 20px;
+  height: 50px;
+  width: 50px;
+  z-index: 2;
+  transition: 0.2s all;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  .ham-line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 6%;
+    background: #fff;
+    transition: 0.2s all;
+  }
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 6%;
+    background: #fff;
+    transition: 0.2s all;
+  }
+
+  &:before {
+    top: 34%;
+  }
+
+  &:after {
+    top: 65%;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active {
+    background: #fff;
+
+    .ham-line {
+      background: #000;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:before,
+    &:after {
+      background: #000;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      top: 50%;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .hamburgler {
+    display: block;
+  }
+  header nav {
+    justify-content: center;
+    .menu {
+      background: #1a1a1a;
+      position: fixed;
+      top: 60px;
+      bottom: 0;
+      padding-bottom: 120px;
+      width: 100%;
+      display: none;
+      flex-flow: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      a.ext-link {
+        background: url('../../public/image/ext-url.svg') no-repeat;
+        background-position: calc(50% - 40px) 50%;
+        margin: 0;
+      }
+      &.active {
+        display: flex;
+      }
+    }
+  }
+}

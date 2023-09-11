@@ -1,0 +1,98 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: public/image/upload
+public_folder: /image/upload
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: redacted
+    api_key: redacted
+collections:
+  - name: beverage
+    label: Beverage
+    folder: content/beverage
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {
+          label: Type,
+          name: type,
+          widget: select,
+          default: beer,
+          options:
+            [{ label: Starköl, value: beer }, { label: Svagöl", value: weakbeer }, { label: Läskeblask, value: soda }],
+        }
+      - { label: Name, name: name, widget: string }
+      - { label: Style, name: style, widget: string }
+      - { label: Background color, name: bgColor, widget: string, required: false }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Image, name: image, widget: image, required: false }
+      - { label: Background Image, name: bgImage, widget: image, required: false }
+      - { label: ABV, name: abv, widget: string, required: false }
+      - { label: Systembolaget Url, name: systembolagetUrl, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown, required: false }
+    identifier_field: name
+  - name: pages
+    label: Pages
+    files:
+      - label: About page
+        name: about
+        file: content/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Type, name: type, widget: hidden, default: about }
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Body, name: body, widget: markdown }
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - { label: Photo, name: photo, widget: image }
+      - label: Order page
+        name: order
+        file: content/order.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Subheader, name: subheader, widget: string }
+          - { label: Type, name: type, widget: hidden, default: about }
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Body, name: body, widget: markdown }
+      - label: Book page
+        name: book
+        file: content/book.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Subheader, name: subheader, widget: string }
+          - { label: Type, name: type, widget: hidden, default: about }
+          - { label: Image, name: image, widget: image, required: false }
+          - { label: Body, name: body, widget: markdown }
+      - label: Contact page
+        name: contact
+        file: content/contact.md
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Type, name: type, widget: hidden, default: contact }
+          - { label: Kartlänk, name: mapLink, widget: string }
+          - { label: Epost, name: email, widget: string }
+          - { label: Besöksadress, name: visitingAddress, widget: markdown }
+          - { label: Postadress, name: mailingAddress, widget: markdown }
+          - label: Länkar
+            name: links
+            widget: list
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: Länk, name: link, widget: string }
+              - { label: Typ, name: rel, widget: string }
+      - label: Landing page
+        name: landing
+        file: content/landing.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Type, name: type, widget: hidden, default: landing }
+          - { label: Text1, name: text1, widget: markdown }
+          - { label: Text2, name: text2, widget: markdown }
+          - { label: Text3, name: text3, widget: markdown }
+          - { label: Text4, name: text4, widget: markdown }
